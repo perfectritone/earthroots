@@ -3,14 +3,6 @@ module SessionsHelper
   def sign_in(user)
     cookies.permanent[:remember_token] = user.remember_token
     self.current_user = user
-=begin
-    unless session.has_key?(:search)
-      session[:search] = Hash.new 
-      Recipe::SEARCH_OPTIONS.each do |option|
-        session[:search][option] = ''
-      end
-    end
-=end
   end
   
   def sign_out

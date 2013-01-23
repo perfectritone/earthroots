@@ -1,13 +1,18 @@
 Earthroots::Application.routes.draw do
   
   resources :users
-
   resources :links
   resources :blogs
+  resources :sessions, only: [:new, :create, :destroy]
+  
+  match "/login", to: "sessions#new"
+  match "/logout", to: "sessions#destroy"
+  match "/signup", to: "users#new"
 
   root to: "static_pages#index"
   match "/contact", to: "static_pages#contact"
   match "/shop", to: "static_pages#shop"
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
