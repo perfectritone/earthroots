@@ -1,0 +1,14 @@
+require File.dirname(__FILE__) + '/../spec_helper'
+
+describe SessionsHelper do
+  fixtures :users
+
+  it "current user should be saved" do
+    helper.current_user = users(:dave)
+    helper.current_user.should == users(:dave)
+  end
+  
+  it "current user should look in cookies for :remember_token" do
+    helper.current_user.should == helper.send(:"@current_user")
+  end
+end

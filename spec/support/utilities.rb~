@@ -1,0 +1,3 @@
+def page_title(page)
+  page.html.match(/<title>(.*)<\/title>/mi)[1].to_s
+end

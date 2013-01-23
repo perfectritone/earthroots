@@ -1,5 +1,5 @@
 module ApplicationHelper
-=begin
+
   def full_title(page_title = '')
     base_title = "Binghamton Food Co-Op"
     if page_title.empty?
@@ -20,5 +20,5 @@ module ApplicationHelper
     end
     link_to_function(name, "add_fields(this, \"#{association}\", \"#{escape_javascript(fields)}\")")
   end
-=end
+
 end
