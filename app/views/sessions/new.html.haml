@@ -1,0 +1,19 @@
+- provide(:title, "Log in")
+%h1
+  Log in
+#signinbox.signbox
+  =form_for(:session, url: sessions_path) do |f|
+  
+    %p
+      =f.label :email
+      =f.text_field :email
+
+    %p
+      =f.label :password
+      =f.password_field :password
+    
+    =f.submit "Log in"
+  
+  %p
+    Haven't signed up yet? <br>
+    =link_to "See what you can come up with here!", signup_path

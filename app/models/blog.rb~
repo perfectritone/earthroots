@@ -13,5 +13,4 @@ class Blog < ActiveRecord::Base
   attr_accessible :title, :content
   
   validates_presence_of :title, :content
-  validates_length_of :title, maximum: 256
 end

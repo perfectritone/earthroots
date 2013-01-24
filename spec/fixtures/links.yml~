@@ -2,8 +2,3 @@ one:
   address: MyString
   category: MyString
   name: MyString
-
-two:
-  address: MyString
-  category: MyString
-  name: MyString

@@ -45,6 +45,6 @@ class LinksController < ApplicationController
   private
   
     def admin_user
-      redirect_to(links_path) unless (current_user && current_user.admin?)
+      redirect_to(blogs_path) unless (current_user && current_user.admin?)
     end
 end

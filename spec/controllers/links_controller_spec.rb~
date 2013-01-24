@@ -1,3 +1,4 @@
+=begin
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe LinksController do
@@ -22,6 +23,9 @@ describe LinksController do
   it "create action should render new template when model is invalid" do
     Link.any_instance.stubs(:valid?).returns(false)
     post :create
+    
+    assigns[:link].should be_new_record
+    flash[:notice].should be_nil
     response.should render_template(:new)
   end
 
@@ -55,3 +59,4 @@ describe LinksController do
     Link.exists?(link.id).should be_false
   end
 end
+=end

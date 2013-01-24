@@ -66,7 +66,7 @@ describe Link do
   
   it "should be invalid when name is blank" do
     link.name = ""
-    should_not be_valid
+    should_not be valid
   end
   
   it "should be invalid when category is not in category list" do

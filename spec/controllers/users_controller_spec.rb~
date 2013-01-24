@@ -20,31 +20,37 @@ describe UsersController do
     end
   end
 
-  it "show action should render show template" do
-    get :show, :id => User.first
-    response.should render_template(:show)
+  describe "#show" do
+    it "show action should render show template" do
+      get :show, :id => User.first
+      response.should render_template(:show)
+    end
   end
 
-  it "new action should render new template" do
-    get :new
-    response.should render_template(:new)
+  describe "#new" do
+    it "new action should render new template" do
+      get :new
+      response.should render_template(:new)
+    end
   end
 
-  it "create action should render new template when model is invalid" do
-    User.any_instance.stubs(:valid?).returns(false)
-    post :create
-    
-    assigns[:user].should be_new_record
-    flash[:notice].should be_nil
-    response.should render_template(:new)
-  end
+  describe "#create" do
+    it "create action should render new template when model is invalid" do
+      User.any_instance.stubs(:valid?).returns(false)
+      post :create
+      
+      assigns[:user].should be_new_record
+      flash[:notice].should be_nil
+      response.should render_template(:new)
+    end
 
-  it "create action should redirect when model is valid" do
-    User.any_instance.stubs(:valid?).returns(true)
-    post :create
-    
-    flash[:notice].should_not be_nil
-    response.should redirect_to(user_url(assigns[:user]))
+    it "create action should redirect when model is valid" do
+      User.any_instance.stubs(:valid?).returns(true)
+      post :create
+      
+      flash[:notice].should_not be_nil
+      response.should redirect_to(user_url(assigns[:user]))
+    end
   end
 
   describe "#edit" do
@@ -69,7 +75,7 @@ describe UsersController do
       controller.stubs(:current_user?).returns(false)
       put :update, :id => User.find(2)
       
-      response.should redirect_to root_path
+      response.should redirect_to blogs_path
     end
     
     it "update action should render edit template when model is invalid" do

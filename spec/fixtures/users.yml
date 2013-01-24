@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id              :integer          not null, primary key
+#  name            :string(255)
+#  email           :string(255)
+#  password_digest :string(255)
+#  remember_token  :string(255)
+#  admin           :boolean          default(FALSE)
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#
+
 titea:
   name: "Titea"
   email: "tmcderm1@binghamton.edu"
@@ -17,3 +31,8 @@ admin:
   password_digest: "super secret"
   admin: true
   id: 3
+  
+marco:
+  name: "Marco de Polo"
+  email: "marco@polo.com"
+  password_digest: "password"

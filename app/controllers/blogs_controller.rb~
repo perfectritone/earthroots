@@ -1,6 +1,6 @@
 class BlogsController < ApplicationController
   include SessionsHelper
-  before_filter :admin_user, only: [:new, :create, :edit, :update]
+  before_filter :admin_user, only: [:new, :create]
   
   def index
     @blogs = Blog.all

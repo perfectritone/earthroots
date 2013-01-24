@@ -2,13 +2,13 @@ titea:
   name: "Titea"
   email: "tmcderm1@binghamton.edu"
   password_digest: "password"
-  id: 2
+  id: 1
   
 dave:
   name: "Dave Frey"
   email: "david.michael.frey@gmail.com"
   password_digest: "password"
-  id: 1
+  id: 2
 
   
 admin:
