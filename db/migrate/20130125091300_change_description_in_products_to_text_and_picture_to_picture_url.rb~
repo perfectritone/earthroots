@@ -1,0 +1,9 @@
+class ChangeDescriptionInProductsToTextAndPictureToPictureUrl < ActiveRecord::Migration
+  def change
+    change_table :products do |t|
+      t.remove :description
+      t.text :description
+      t.rename_column :picture, :picture_url
+    end
+  end
+end

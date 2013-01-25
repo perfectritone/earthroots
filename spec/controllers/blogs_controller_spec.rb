@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe BlogsController do
-  fixtures :all
+  fixtures :blogs, :users
   render_views
   let(:user) { users(:marco) }
   let(:admin) { users(:admin) }

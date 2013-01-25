@@ -45,14 +45,12 @@ describe BlogsController do
     end
     it "non-admin user, new action should redirect to index" do
       controller.stubs(:current_user).returns(user)
-      user.stubs(:admin_user?).returns(false)
       post :create
       response.should redirect_to blogs_path
     end
     it "admin user, create action should render new template when model is \
           invalid" do
       controller.stubs(:current_user).returns(admin)
-      admin.stubs(:admin_user?).returns(true)
       Blog.any_instance.stubs(:valid?).returns(false)
       post :create
       
@@ -63,7 +61,6 @@ describe BlogsController do
 
     it "admin user, create action should redirect when model is valid" do
       controller.stubs(:current_user).returns(admin)
-      admin.stubs(:admin_user?).returns(true)
       Blog.any_instance.stubs(:valid?).returns(true)
       post :create
       
@@ -86,12 +83,12 @@ describe BlogsController do
   end
 
   describe "#edit" do
-    it "non-user, edit action should render edit template" do
+    it "non-user, redirect to blogs path" do
       controller.stubs(:current_user).returns(nil)
       get :edit, :id => Blog.first
       response.should redirect_to blogs_path
     end
-    it "non-admin user, edit action should render edit template" do
+    it "non-admin user, redirect to blogs pathe" do
       controller.stubs(:current_user).returns(user)
       get :edit, :id => Blog.first
       response.should redirect_to blogs_path

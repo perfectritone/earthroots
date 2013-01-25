@@ -11,13 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130120030109) do
+ActiveRecord::Schema.define(:version => 20130125100057) do
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
     t.text     "content"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "herbs", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "herbs_products", :id => false, :force => true do |t|
+    t.integer "herb_id"
+    t.integer "product_id"
   end
 
   create_table "links", :force => true do |t|
@@ -27,6 +38,18 @@ ActiveRecord::Schema.define(:version => 20130120030109) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "products", :force => true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.string   "picture_url"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.text     "description"
+  end
+
+  add_index "products", ["category"], :name => "index_products_on_category"
+  add_index "products", ["name"], :name => "index_products_on_name", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "name"

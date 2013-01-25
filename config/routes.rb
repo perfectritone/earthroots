@@ -1,5 +1,11 @@
 Earthroots::Application.routes.draw do
   
+  resources :product_sizes
+
+  resources :herbs
+
+  resources :products
+
   resources :users
   resources :links
   resources :blogs
