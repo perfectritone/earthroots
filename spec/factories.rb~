@@ -6,4 +6,9 @@ FactoryGirl.define do
     password               "password"
     password_confirmation  "password"
   end
+  
+  factory :product do
+    sequence(:id) { |n| n+1 }
+    sequence(:name) { |n| "Herb ##{n}"}
+  end
 end

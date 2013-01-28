@@ -1,0 +1,9 @@
+add herb column for existing herbs to product form
+add dynamic # of herbs
+add an add herb column to product form
+
+do this, and avoid multiple forms?
+implement ajax for herb column to pick herbs already in the db
+
+nested_attrs currently set to allow_destroy. check if this deletes herb, or 
+just the association

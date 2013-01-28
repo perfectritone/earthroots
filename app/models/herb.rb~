@@ -11,7 +11,13 @@
 class Herb < ActiveRecord::Base
   attr_accessible :name
   
+  has_and_belongs_to_many :products
+  
   validates :name, presence: true
   validates_length_of :name, maximum: 256
+  
+  def self.names
+    Herb.select(:name).map { |h| h.name }
+  end
   
 end

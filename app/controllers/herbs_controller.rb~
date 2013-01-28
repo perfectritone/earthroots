@@ -1,7 +1,4 @@
 class HerbsController < ApplicationController
-  include SessionsHelper
-  before_filter :admin_user, only: [:new, :create, :edit, :update]
-  
   def index
     @herbs = Herb.all
   end
@@ -40,11 +37,5 @@ class HerbsController < ApplicationController
     @herb = Herb.find(params[:id])
     @herb.destroy
     redirect_to herbs_url, :notice => "Successfully destroyed herb."
-  end  
-  
-  private
-  
-    def admin_user
-      redirect_to(herbs_path) unless (current_user && current_user.admin?)
-    end
+  end
 end

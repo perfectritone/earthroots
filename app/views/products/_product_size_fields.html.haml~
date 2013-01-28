@@ -1,0 +1,16 @@
+.fields
+  %p
+    =f.label :product_id
+    %br
+    =f.number_field :product_id
+  %p
+    =f.label :size
+    %br
+    =f.text_field :size
+  %p
+    =f.label :price
+    %br
+    =f.text_field :price
+
+  %p.remove_ingredient
+    =link_to_remove_fields "x", f

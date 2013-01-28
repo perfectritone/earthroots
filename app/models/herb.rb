@@ -16,4 +16,8 @@ class Herb < ActiveRecord::Base
   validates :name, presence: true
   validates_length_of :name, maximum: 256
   
+  def self.names
+    self.select(:name).map { |h| h.name }
+  end
+  
 end

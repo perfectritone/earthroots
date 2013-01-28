@@ -1,7 +1,7 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe LinksController do
-  fixtures :all
+  fixtures :links, :users
   render_views
   let(:user) { users(:marco) }
   let(:admin) { users(:admin) }

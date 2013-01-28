@@ -9,6 +9,6 @@ FactoryGirl.define do
   
   factory :product do
     sequence(:id) { |n| n+1 }
-    sequence(:name) { |n| "Herb ##{n}"}
+    sequence(:name) { |n| "Product ##{n}"}
   end
 end

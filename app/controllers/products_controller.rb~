@@ -19,7 +19,7 @@ class ProductsController < ApplicationController
 
   def create  
     @product = Product.new(params[:product]) 
-    @product.herbs.map! do |herb|
+    @product.herbs.map do |herb|
       # returns true if herb is already persisted
       # todo: benchmark against setting @product.herbs << persisted_herb w/ delete
       if persisted_herb = Herb.find_by_name(herb[:name])

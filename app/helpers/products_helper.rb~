@@ -1,0 +1,7 @@
+module ProductsHelper
+
+  def herb_names
+    Herb.select(:name).map { |h| h.name }
+  end
+  
+end

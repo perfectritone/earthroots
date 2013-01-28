@@ -1,16 +1,13 @@
 Earthroots::Application.routes.draw do
   
-  resources :product_sizes
-
   resources :herbs
-
   resources :products
 
   resources :users
   resources :links
   resources :blogs
-  resources :sessions, only: [:new, :create, :destroy]
   
+  resources :sessions, only: [:new, :create, :destroy]
   match "/login", to: "sessions#new"
   match "/logout", to: "sessions#destroy"
   match "/signup", to: "users#new"
