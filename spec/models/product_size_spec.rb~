@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: product_sizes
+#
+#  id         :integer          not null, primary key
+#  product_id :integer
+#  size       :string(255)
+#  price      :decimal(, )
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe ProductSize do
@@ -27,6 +39,11 @@ describe ProductSize do
       should_not be_valid
     end
     
+    it "should be valid when starting with $" do
+      product_size.price = "$9.99"
+      should be_valid
+    end
+    
     it "should be valid" do
       product_size.price = 9.99
       should be_valid
@@ -41,12 +58,12 @@ describe ProductSize do
     
     it "should return price in standard format" do
       product_size.price = 9.9
-      product_size.display_price.should == "$9.00"
+      product_size.display_price.should == "$9.90"
     end
     
     it "should return price in standard format" do
       product_size.price = 9.99
-      product_size.display_price.should == "$9.00"
+      product_size.display_price.should == "$9.99"
     end
 
     it "should return price in standard format" do

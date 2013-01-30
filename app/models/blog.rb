@@ -14,4 +14,6 @@ class Blog < ActiveRecord::Base
   
   validates_presence_of :title, :content
   validates_length_of :title, maximum: 256
+  
+  default_scope order: "blogs.created_at DESC"
 end
