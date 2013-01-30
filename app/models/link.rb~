@@ -14,11 +14,13 @@ class Link < ActiveRecord::Base
   require 'uri'
   
   attr_accessible :address, :category, :name
+  CATEGORIES = ["herbs"]
   
   before_validation :downcase_address
   validate :valid_url
   validates :name, :address, :category, presence: true
   validates :name, :address, length: { maximum: 256 }
+  validates_inclusion_of :category, in: CATEGORIES
   
   private
     def downcase_address

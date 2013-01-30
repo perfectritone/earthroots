@@ -17,6 +17,7 @@ class Link < ActiveRecord::Base
   CATEGORIES = ["herbs"]
   
   before_validation :downcase_address
+  before_validation :downcase_category
   validate :valid_url
   validates :name, :address, :category, presence: true
   validates :name, :address, length: { maximum: 256 }
@@ -27,6 +28,12 @@ class Link < ActiveRecord::Base
       self.address.downcase!
     rescue
       self.address = nil
+    end
+    
+    def downcase_category
+      self.category.downcase!
+    rescue
+      self.category = nil
     end
     
     def valid_url
