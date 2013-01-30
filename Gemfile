@@ -6,6 +6,7 @@ gem 'haml-rails', '0.3.5'
 gem 'jquery-rails', '2.1.4'
 gem 'faker', '1.1.2'
 gem 'launchy', '2.1.2'
+gem 'carrierwave', '0.8.0'
 
 group :development do
   gem 'sqlite3', '1.3.7'

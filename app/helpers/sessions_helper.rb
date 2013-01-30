@@ -25,14 +25,14 @@ module SessionsHelper
   def current_user?(user)
     user == current_user
   end
-  
+ 
+  def admin_user?
+    !!(current_user && current_user.admin?)
+  end
+    
+=begin 
   def admin_user(redirect_path)
     redirect_to(redirect_path) unless (current_user && current_user.admin?)
-  end
-  
-=begin  
-  def admin_user?
-    current_user.admin?
   end
 
   def redirect_back_or(default)

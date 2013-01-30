@@ -62,6 +62,11 @@ class ProductsController < ApplicationController
       redirect_to(products_path) unless (current_user && current_user.admin?)
     end
     
+    # Takes in a Product and a the Product Hash from the params Hash.
+    # Returns an updated Product Hash, suitable to be sent as an argument to
+    # update_attributes(), with all previously persisted herbs removed. This
+    # herbs are instead added directly to the Product, which avoids duplication
+    # of herbs in the db.
     def existing_herbs(product, product_hash)
       if product_hash.has_key?(:herbs_attributes)
         product_hash[:herbs_attributes].each do |i, herb|

@@ -6,10 +6,11 @@
 %p
   %strong Email:
   = @user.email
+  
 %p
-  %strong Password Digest:
-  = @user.password_digest
-
+  =link_to "New Product", new_product_path
+  |
+  =link_to "New Herb", new_herb_path
 %p
   = link_to "Edit", edit_user_path(@user)
   |

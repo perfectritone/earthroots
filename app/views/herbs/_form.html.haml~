@@ -1,0 +1,83 @@
+= form_for @herb do |f|
+  = f.error_messages
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+    
+  %p
+    = f.label :family
+    %br
+    = f.text_field :family
+  %p
+    = f.label :genus
+    %br
+    = f.text_field :genus
+  %p
+    = f.label :species
+    %br
+    = f.text_field :species
+    
+  Common Names
+  =f.fields_for :common_names do |builder|
+    =render 'common_name_fields', f: builder
+  %p
+    =link_to_add_fields "Add Another Name", f, :common_names
+    
+  %p
+    = f.label :parts_used, "Parts Used"
+    %br
+    = f.text_area :parts_used
+  %p
+    = f.label :description, "Plant Description and Distribution"
+    %br
+    = f.text_area :description
+  %p
+    = f.label :harvest
+    %br
+    = f.text_area :harvest
+  %p
+    = f.label :constituents, "Key Contituents"
+    %br
+    = f.text_area :constituents
+    
+  Actions
+  =f.fields_for :actions do |builder|
+    =render 'action_fields', f: builder
+  %p
+    =link_to_add_fields "Add Another Action", f, :actions
+    
+  Indications
+  =f.fields_for :indications do |builder|
+    =render 'indication_fields', f: builder
+  %p
+    =link_to_add_fields "Add Another Indication", f, :indications
+    
+  %p
+    = f.label :traditional_uses
+    %br
+    = f.text_area :traditional_uses
+  %p
+    = f.label :overview
+    %br
+    = f.text_area :overview
+  %p
+    = f.label :safety, "Safety Considerations"
+    %br
+    = f.text_area :safety
+  %p
+    = f.label :dosage
+    %br
+    = f.text_area :dosage
+  %p
+    = f.label :other_information
+    %br
+    = f.text_area :other_information
+  %p
+    = f.label :resources, "Resources for Further Study"
+    %br
+    = f.text_area :resources
+
+
+  %p
+    = f.submit

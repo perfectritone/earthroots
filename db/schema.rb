@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130125104951) do
+ActiveRecord::Schema.define(:version => 20130129230543) do
+
+  create_table "actions", :force => true do |t|
+    t.integer  "herb_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "blogs", :force => true do |t|
     t.string   "title"
@@ -20,15 +27,42 @@ ActiveRecord::Schema.define(:version => 20130125104951) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "herbs", :force => true do |t|
+  create_table "common_names", :force => true do |t|
+    t.integer  "herb_id"
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "herbs", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "family"
+    t.string   "genus"
+    t.string   "species"
+    t.text     "description"
+    t.text     "harvest"
+    t.text     "constituents"
+    t.text     "traditional_uses"
+    t.text     "overview"
+    t.text     "safety"
+    t.text     "dosage"
+    t.text     "other_information"
+    t.text     "resources"
+    t.string   "parts_used"
+  end
+
   create_table "herbs_products", :id => false, :force => true do |t|
     t.integer "herb_id"
     t.integer "product_id"
+  end
+
+  create_table "indications", :force => true do |t|
+    t.integer  "herb_id"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "links", :force => true do |t|

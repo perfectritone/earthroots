@@ -24,6 +24,7 @@ describe Product do
   it { should respond_to :picture_url }
   it { should respond_to :herbs }
   it { should respond_to :product_sizes }
+  it { should respond_to :display_category }
   
   it { should be_valid }
   
@@ -47,6 +48,12 @@ describe Product do
     product.should_not be_valid
   end
   
+  it "#display_category should return category with first letter capitalised" do
+    product.display_category.should == "Salves"
+  end
+=begin
+  These tests are for a remote picture url
+  
   it "should be invalid with long picture url" do
     product.picture_url = "a"*257
     product.should_not be_valid
@@ -63,4 +70,5 @@ describe Product do
     product.picture_url = "no_tld"
     should_not be_valid
   end
+=end
 end

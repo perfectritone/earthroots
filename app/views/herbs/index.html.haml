@@ -1,13 +1,8 @@
-- title "Herbs"
+-title "Herbs"
 
-%table
-  %tr
-    %th Name
-  - for herb in @herbs
-    %tr
-      %td= herb.name
-      %td= link_to 'Show', herb
-      %td= link_to 'Edit', edit_herb_path(herb)
-      %td= link_to 'Destroy', herb, :confirm => 'Are you sure?', :method => :delete
-
-%p= link_to "New Herb", new_herb_path
+-if admin_user?
+  %p= link_to "New Herb", new_herb_path
+  
+-@herbs.each do |herb|
+  =link_to herb.name, herb_path(herb)
+  <br><br>

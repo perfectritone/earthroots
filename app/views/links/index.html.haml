@@ -1,0 +1,12 @@
+-title "Links"
+
+%table
+  -for link in @links
+    %tr
+      =link_to link.name, link.address
+      -if admin_user?
+        %td= link_to "Show", link
+        %td= link_to "Edit", edit_link_path(link)
+        %td= link_to "Destroy", link, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Link", new_link_path

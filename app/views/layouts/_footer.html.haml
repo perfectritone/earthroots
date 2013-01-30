@@ -1,27 +1,29 @@
 #footer
   %p 
-  #session_info
-    -unless signed_in?
-      =form_for(:session, url: sessions_path) do |f|
-        %table
-          %tr.loginForm
-            %td
-              =f.label :email, "Please enter your e-mail:"
-              =f.text_field :email, size: 20
-            %td
-              =f.label :password, "and password:"
-              =f.password_field :password, size: 16
-            %td
-              =f.submit "Log in"
-          %tr
-            %td
-            %td#sign_up_in_bar{ style: "text-align: right" }
-              =link_to "Sign up here", signup_path
-              if you aren't registered yet.
-    -else
-      =link_to "My Profile", user_path(current_user)
-      |
-      =link_to "Log out", logout_path, method: :delete
+  -#
+    #session_info
+      -unless signed_in?
+        =form_for(:session, url: sessions_path) do |f|
+          %table
+            %tr.loginForm
+              %td
+                =f.label :email, "Please enter your e-mail:"
+                =f.text_field :email, size: 20
+              %td
+                =f.label :password, "and password:"
+                =f.password_field :password, size: 16
+              %td
+                =f.submit "Log in"
+            %tr
+              %td
+              %td#sign_up_in_bar{ style: "text-align: right" }
+                =link_to "Sign up here", signup_path
+                if you aren't registered yet.
+      -else
+        =link_to "My Profile", user_path(current_user)
+        |
+        =link_to "Log out", logout_path, method: :delete
   #copyright
-    &copy;Earth Roots, 2012.
+    &copy;Earth Roots, 2013. Designed and Developed by 
+    #{link_to "David Frey", "http://davidfrey.webege.com"}.
 

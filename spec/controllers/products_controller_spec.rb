@@ -50,14 +50,14 @@ describe ProductsController do
       response.should redirect_to products_path
     end
     
-    describe "admin user" do
+    describe "admin" do
       before do
         controller.stubs(:current_user).returns(admin)
         @new_product = FactoryGirl.build(:product)
       end
       
-      it "admin user, create action should render new template when model is \
-            invalid" do
+      it "admin user, create action should render new template when model is "\
+         "invalid" do
         Product.any_instance.stubs(:valid?).returns(false)
         post :create
         
@@ -94,7 +94,11 @@ describe ProductsController do
             name: @new_product.name,
             category: @new_product.category,
             description: @new_product.description,
-            herbs_attributes: [name: "New Herb"]
+            herbs_attributes: [name: "New Herb",
+                               genus: "Genus",
+                               family: "Family",
+                               species: "Species"
+            ]
           }
         }
         old_herb_count = Herb.count
@@ -103,25 +107,35 @@ describe ProductsController do
         Herb.count.should == old_herb_count + 1
       end
       
-      it "should increase associated Herb count by 1 on save, but not change\
-        the Herb count" do
-        @persisted_herb = Herb.create( name: "Persistent Herb" )
+      it "should increase associated Herb count by 1 on save, but not change "\
+         "the total persisted Herb count" do
+        @persisted_herb = Herb.create(
+          name: "Persistent Herb",
+          genus: "Genus",
+          family: "Family",
+          species: "Species" 
+        )
         params = {  
           product: {
             name: @new_product.name,
             category: @new_product.category,
             description: @new_product.description,
-            herbs_attributes: [name: @persisted_herb.name]
+            herbs_attributes: [
+              name: @persisted_herb.name,
+              genus: "Genus",
+              family: "Family",
+              species: "Species"
+            ]
           }
         }
-        old_herb_count = Herb.count
+        @old_herb_count = Herb.count
         post 'create', params
         Product.find_by_name(@new_product.name).herbs.count.should == 1
-        Herb.count.should == old_herb_count
+        Herb.count.should == @old_herb_count
       end
       
-      it "should remove association when passed _destroy: true,\
-        but leave the herb untouched" do
+      it "should remove association when passed _destroy: true, "\
+         "but leave the herb untouched" do
         @persisted_herb = Herb.create( name: "Persistent Herb" )
         params = {  
           product: {
@@ -131,10 +145,10 @@ describe ProductsController do
             herbs_attributes: [name: @persisted_herb.name, _destroy: true]
           }
         }
-        old_herb_count = Herb.count
+        @old_herb_count = Herb.count
         post 'create', params
         Product.find_by_name(@new_product.name).herbs.count.should == 0
-        Herb.count.should == old_herb_count
+        Herb.count.should == @old_herb_count
       end
       
     end
@@ -176,8 +190,8 @@ describe ProductsController do
         @new_product = FactoryGirl.create(:product)
       end
       
-      it "update action should render edit template when model is \
-        invalid" do
+      it "update action should render edit template when model is "\
+         "invalid" do
         controller.stubs(:current_user).returns(admin)
         admin.stubs(:admin_user?).returns(true)
         controller.stubs(:existing_herbs).returns(nil)
@@ -200,7 +214,10 @@ describe ProductsController do
         @updated_product = HashWithIndifferentAccess.new ({
           herbs_attributes: HashWithIndifferentAccess.new({
             "0" => HashWithIndifferentAccess.new({
-              name: "New Herb" # Added attribute
+              name: "New Herb", # Added attribute
+              genus: "Genus",
+              family: "Family",
+              species: "Species"
             })
           })
         })
@@ -210,14 +227,21 @@ describe ProductsController do
         Herb.count.should == @old_herb_count + 1
       end
       
-      it "should increase associated Herb count by 1, not change persisted \
-        Herb count" do
-        @persisted_herb = Herb.create(name: "Persisted Herb")
+      it "should increase associated Herb count by 1, but not change the "\
+         "total persisted Herb count" do
+        @persisted_herb = Herb.create(
+          name: "Persistent Herb",
+          genus: "Genus",
+          family: "Family",
+          species: "Species" 
+        )
         @old_herb_count = Herb.count
         @updated_product_attrs = HashWithIndifferentAccess.new ({
           herbs_attributes: HashWithIndifferentAccess.new({
             "0" => HashWithIndifferentAccess.new({
               name: @persisted_herb.name
+              # Don't need to send other attrs, since Herb is intercepted and
+              # automatically becomes a reference to existing Herb.
             })
           })
         })
@@ -227,8 +251,8 @@ describe ProductsController do
         Herb.count.should == @old_herb_count
       end
       
-      it "should remove association when passed _destroy: true,\
-        but leave the herb untouched" do
+      it "should remove association when passed _destroy: true, "\
+         "but leave the herb untouched" do
         @persisted_herb = @new_product.herbs.create(name: "Persisted Herb")
         @old_herb_count = Herb.count
         @updated_product_attrs = HashWithIndifferentAccess.new ({

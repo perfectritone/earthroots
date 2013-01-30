@@ -1,0 +1,12 @@
+.blog
+  .blog_title
+    =blog.title
+  <br><br>
+  =blog.content
+  -if admin_user?
+    %p
+      = link_to 'Show', blog
+      |
+      = link_to 'Edit', edit_blog_path(blog)
+      |
+      = link_to 'Destroy', blog, :confirm => 'Are you sure?', :method => :delete

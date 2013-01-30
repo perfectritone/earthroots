@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: product_sizes
+#
+#  id         :integer          not null, primary key
+#  product_id :integer
+#  size       :string(255)
+#  price      :decimal(, )
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 one:
   product_id: 1
   size: 8oz

@@ -7,3 +7,24 @@ implement ajax for herb column to pick herbs already in the db
 
 nested_attrs currently set to allow_destroy. check if this deletes herb, or 
 just the association
+
+
+rails generate scaffold CommonName herb_id:integer name:string --haml
+rails generate scaffold Action herb_id:integer name:string --haml
+rails generate scaffold Indication herb_id:integer name:string --haml
+
+  
+  Family +
+Common Names +
+Parts Used +
+Plant Description and Distribution ++
+Harvest ++
+Key Constituents ++
+Actions ++% 
+Indications ++%, ailments: inflammation
+Traditional Uses -
+Overview ++
+Safety Considerations ++
+Dosage ++
+Other Information -
+Resources for Further Study -

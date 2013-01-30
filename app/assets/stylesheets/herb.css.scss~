@@ -1,0 +1,12 @@
+header .herb {
+  text-align: center;
+}
+
+.herb_name {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.herb_latin {
+  font-style: italic;
+}

@@ -1,0 +1,61 @@
+.herb
+  %header
+    .herb_name
+      =herb.name
+    .herb_latin
+      =herb.genus
+      =herb.species
+  
+  .herb_content
+    -if herb.common_names.any?
+      %p
+        Common Names:
+        =herb.common_names.map(&:name).join(', ')
+    -if herb.parts_used.present?
+      %p
+        Parts Used:
+        =herb.parts_used
+    -if herb.description.present?
+      %p
+        Plant Description and Distribution:
+        =herb.description
+    -if herb.harvest.present?
+      %p
+        Harvest:
+        =herb.harvest
+    -if herb.constituents.present?
+      %p
+        Key Constituents:
+        =herb.constituents
+    -if herb.actions.any?
+      %p
+        Actions:
+        =herb.actions.map(&:name).join(', ')
+    -if herb.indications.any?
+      %p
+        Indications:
+        =herb.indications.map(&:name).join(', ')
+    -if herb.traditional_uses.present?
+      %p
+        Traditional Uses:
+        =herb.traditional_uses
+    -if herb.overview.present?
+      %p
+        Overview:
+        =herb.overview
+    -if herb.safety.present?
+      %p
+        Safety Considerations:
+        =herb.safety
+    -if herb.dosage.present?
+      %p
+        Dosage:
+        =herb.dosage
+    -if herb.other_information.present?
+      %p
+        Other Information:
+        =herb.other_information
+    -if herb.resources.present?
+      %p
+        Resources for Further Study:
+        =herb.resources

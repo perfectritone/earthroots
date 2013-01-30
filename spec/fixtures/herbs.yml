@@ -2,11 +2,27 @@
 #
 # Table name: herbs
 #
-#  id         :integer          not null, primary key
-#  name       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                :integer          not null, primary key
+#  name              :string(255)
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  family            :string(255)
+#  genus             :string(255)
+#  species           :string(255)
+#  description       :text
+#  harvest           :text
+#  constituents      :text
+#  traditional_uses  :text
+#  overview          :text
+#  safety            :text
+#  dosage            :text
+#  other_information :text
+#  resources         :text
 #
 
 one:
   name: Yarrow
+  family: Asteraceae
+  genus: Achillea
+  species: millefolium
+  id: 1

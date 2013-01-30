@@ -24,3 +24,4 @@ describe "StaticPages" do
     it { should have_content('StaticPages#shop') }
     #it { should have_selector('title', text: 'Contact') }
   end
+end

@@ -1,0 +1,12 @@
+%h1 Contact Information
+
+Earth Roots is located in Asheville, NC.
+<br><br>
+If you have any questions, feel free to contact us:
+
+%p 
+  %strong Phone:
+  =link_to "(828) 989-0573", "tel:1-828-989-0673"
+%p
+  %strong E-mail:
+  =link_to "addie@earthrootsherbal.com", "mailto:addie@earthrootsherbal.com"

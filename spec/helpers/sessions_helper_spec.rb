@@ -72,8 +72,7 @@ describe SessionsHelper do
       helper.current_user?(user).should be_false
     end
   end
-    
-=begin
+  
   describe "#admin_user?" do
     it "user is admin" do
       user = users(:admin)
@@ -85,6 +84,10 @@ describe SessionsHelper do
       assign(:current_user, user)
       helper.admin_user?.should == false
     end
+    it "no user is signed in" do
+      assign(:current_user, nil)
+      helper.admin_user?.should == false
+    end
   end
-=end
+
 end

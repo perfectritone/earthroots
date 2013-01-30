@@ -131,6 +131,9 @@ h3 {
   text-align: left;
 }
 
+#copyright {
+  text-align: right;
+}
 /*.breaker {
   border: 1px solid black;
 }*/

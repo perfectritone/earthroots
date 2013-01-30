@@ -1,0 +1,24 @@
+.product
+  .product_title
+    =link_to @product.name, product_path(@product)
+  .product_inside
+    -unless @product.picture_url_url.to_s.blank?
+      .product_picture
+        = image_tag @product.picture_url_url.to_s
+    .product_category
+      = @product.display_category
+    .product_description
+      = @product.description
+    %br
+    .product_sizes
+      -@product.product_sizes.each do |size|
+        .product_size
+          =size.size
+          \: 
+          =size.display_price
+
+    -if admin_user?
+      %p
+        = link_to "Edit", edit_product_path(@product)
+        |
+        = link_to "Destroy", @product, :confirm => 'Are you sure?', :method => :delete

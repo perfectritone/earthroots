@@ -13,8 +13,6 @@
 
 class Product < ActiveRecord::Base
   require 'uri'
-  attr_accessible :name, :category, :description, :picture_url, 
-    :product_sizes_attributes, :herbs_attributes
   
   has_and_belongs_to_many :herbs
   has_many :product_sizes
@@ -27,24 +25,22 @@ class Product < ActiveRecord::Base
   
   CATEGORIES = ["salves"]
   
-=begin
-  before_save do
-    if self.herbs_attributes
-      self.herbs_attributes.each do |h|
-        existing_herb = Herb.find_by_name(h.name)
-        h = existing_herb unless existing?
-      end
-    end
-  end
-=end
-  
+  mount_uploader :picture_url, ProductUploader
+
   before_validation :downcase_url
   before_validation :downcase_category
-  validate :valid_url, unless: "picture_url.blank?"
+  #validate :valid_url, unless: "picture_url.blank?"
   validates :name, presence: true
   validates_length_of :name, maximum: 256
-  validates_length_of :picture_url, maximum: 256
+  #validates_length_of :picture_url, maximum: 256
   validates_inclusion_of :category, in: CATEGORIES, allow_blank: true
+  
+  attr_accessible :name, :category, :description, :picture_url, 
+    :product_sizes_attributes, :herbs_attributes
+
+  def display_category
+    self.category.capitalize
+  end
   
   private
     def downcase_url

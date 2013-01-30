@@ -12,6 +12,9 @@ class HerbsController < ApplicationController
 
   def new
     @herb = Herb.new
+    @herb.common_names.build
+    @herb.actions.build
+    @herb.indications.build
   end
 
   def create

@@ -127,13 +127,62 @@ h3 {
 }
 
 #session_info {
-  float: left;
   text-align: left;
+  clear: none;
 }
 
 #copyright {
-  text-align: right;
+  text-align: center;
+  color: grey;
+  font-size: .9em;
+  a {
+    color: grey;
+  }
+  /*position: relative;
+  bottom: 1em;*/
 }
 /*.breaker {
   border: 1px solid black;
 }*/
+
+.product {
+  margin: 0 auto;
+  padding: 20px;
+  width: 45%;
+  text-align: left;
+}
+
+.product_title {
+  font-weight: bold;
+  background: url('product_title.png');
+  padding: 0 1em;
+  width: 159px;
+  position: relative;
+  top: 1px;
+  left: -11px;
+  height: 19px;
+}
+
+.product_inside {
+  background-color: #7FBA68;
+  padding: .3em .3em;
+}
+
+.product_category {
+  padding-bottom: .5em;
+}
+
+.product_picture {
+  float: right;
+  img {
+    width: 150px;
+    heigh: 150px;
+  }
+  position: relative;
+  top: -.7em;
+  right: -.7em;
+}
+
+.product_size {
+  text-align: right;
+}

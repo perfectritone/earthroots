@@ -1,12 +1,5 @@
-- title "Herb"
+-title @herb.name
 
-%p
-  %strong Name:
-  = @herb.name
+=render @herb
 
-%p
-  = link_to "Edit", edit_herb_path(@herb)
-  |
-  = link_to "Destroy", @herb, :confirm => 'Are you sure?', :method => :delete
-  |
-  = link_to "View All", herbs_path
+=link_to "View All", herbs_path
