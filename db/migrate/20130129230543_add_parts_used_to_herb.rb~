@@ -1,4 +1,0 @@
-class AddPartsUsedToHerb < ActiveRecord::Migration
-  def change
-  end
-end

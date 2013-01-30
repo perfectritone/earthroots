@@ -1,5 +1,0 @@
-class Indication < ActiveRecord::Base
-  belongs_to :herb
-  
-  attr_accessible :herb_id, :name
-end

@@ -1,8 +1,0 @@
-- title "Edit Herb"
-
-= render 'shared/herb_form'
-
-%p
-  = link_to "Show", @herb
-  |
-  = link_to "View All", herbs_path

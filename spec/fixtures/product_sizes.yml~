@@ -1,9 +1,0 @@
-one:
-  product_id: 1
-  size: MyString
-  price: 9.99
-
-two:
-  product_id: 1
-  size: MyString
-  price: 9.99

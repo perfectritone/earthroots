@@ -1,6 +1,0 @@
-- title "Blog"
-
--if admin_user?
-  %p= link_to "New Blog", new_blog_path
-  
-=render @products

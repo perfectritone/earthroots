@@ -1,6 +1,0 @@
--title @product.name
-
-=render @product
-
-
-= link_to "View All Products", products_path

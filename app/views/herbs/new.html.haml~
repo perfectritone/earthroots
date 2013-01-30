@@ -1,5 +1,0 @@
-- title "New Herb"
-
-= render 'shared/herb_form'
-
-%p= link_to "Back to List", herbs_path

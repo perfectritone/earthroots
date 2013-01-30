@@ -1,8 +1,0 @@
--title "Herbs"
-
--if admin_user?
-  %p= link_to "New Herb", new_herb_path
-  
--@herbs.each do |herb|
-  =link_to herb.name, herb_path herb
-  <br><br>

@@ -1,8 +1,0 @@
-.fields
-  %p
-    =f.label :name
-    %br
-    =f.select :name, @categories
-
-  %p.remove_ingredient
-    =link_to_remove_fields "x", f

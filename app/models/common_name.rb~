@@ -1,3 +1,0 @@
-class CommonName < ActiveRecord::Base
-  attr_accessible :Action, :herb_id, :name
-end

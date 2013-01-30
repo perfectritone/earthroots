@@ -1,3 +1,0 @@
-class ProductSizes < ActiveRecord::Base
-  attr_accessible :product_id, :size, :price
-end
