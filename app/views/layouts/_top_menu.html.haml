@@ -1,10 +1,10 @@
 #top_menu
-  %table
-    %tr
-      %td= link_to "Home", root_path
-      %td= link_to "Products", products_path
-      %td= link_to "Herbs", herbs_path
-      %td= link_to "Blog", blogs_path
-      %td= link_to "Links", links_path
-      -#%td= link_to "Shop", shop_path
-      %td= link_to "Contact", contact_path
+  %span#buttons
+    %span.button= link_to image_tag("button_home.png"), root_path
+    %span.button= link_to image_tag("button_products.png"), products_path
+    %span.button= link_to image_tag("button_services.png"), "#"
+    %span.button= link_to image_tag("button_herbs.png"), herbs_path
+    %span.button= link_to image_tag("button_blog.png"), blogs_path
+    %span.button= link_to image_tag("button_links.png"), links_path
+    -#%span.button= link_to "Shop", shop_path
+    %span.button= link_to image_tag("button_contact.png"), contact_path

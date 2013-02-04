@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(:version => 20130129230543) do
     t.text     "safety"
     t.text     "dosage"
     t.text     "other_information"
-    t.text     "resources"
     t.string   "parts_used"
+    t.string   "resources"
   end
 
   create_table "herbs_products", :id => false, :force => true do |t|

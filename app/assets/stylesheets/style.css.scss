@@ -1,13 +1,19 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #E0E0E0;
+  background-color: rgb(126, 137, 89);
+}
+
+@font-face {
+	font-family: cochin;
+	src: url('Cochin_LT.ttf') format('truetype');
 }
 
 #container {
-  margin: 10px auto;
-  background-color: #F5E4E9;
-  border: 3px solid #C8D8E3;
+  margin: 0 13%;
+  padding: 2% .5% 0 .5%;
+  background-color: rgb(232, 234, 220);
+  font-family: cochin;
 }
 
 h1 {
@@ -30,33 +36,25 @@ h3 {
 #header {
   line-height: 0pt;
   text-align: center;
+  img {
+    width: 100%;
+  }
 }
 
-#top_menu table {
-  margin: 0 auto;
-  background-color: #9966CC;
-  border-collapse: collapse;
-  width: 1090px;
-}
-
-#top_menu td {
-  text-align:center;
-  border-left:1px solid black;
-  font-family: Helvetica,verdana; 
-  font-size: 1.6em;
-  color: white;
-}
-
-#top_menu td:first-child {
-  border: none;
-}
-
-#top_menu a, #top_menu a:visited, #topMenu a:link {
-  display: block;
-  text-transform:lowercase;
-  color: #FFFFFF;
-  text-decoration:none;
-  font-size: 1em;
+#top_menu {
+  background-color: rgb(145, 176, 188);
+  -moz-border-radius: 15px;
+  border-radius: 12px;
+  margin-top: 5px;
+  padding-top: 2px;
+  width: 100%;
+  text-align: center;
+  #buttons {
+    display: inline-block;
+  }
+  img {
+    width: 13%;
+  }
 }
 
 #menu_divider {
@@ -185,4 +183,14 @@ h3 {
 
 .product_size {
   text-align: right;
+}
+
+#inner_box {
+  border: 88px solid transparent;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border-image: url('content_border.png') 88 88 round;
+  -moz-border-image: url('content_border.png') 88 88 round; /* Old Firefox */
+  -webkit-border-image: url('content_border.png') 88 88 round; /* Safari */
+  -o-border-image: url('content_border.png') 88 88 round; /* Opera */
 }

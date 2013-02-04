@@ -30,6 +30,8 @@ class Herb < ActiveRecord::Base
   has_many :common_names
   has_many :actions
   has_many :indications
+  has_many :links
+  has_many :books
   
   accepts_nested_attributes_for :common_names, allow_destroy: true,
     reject_if: lambda { |a| a[:name].blank? }

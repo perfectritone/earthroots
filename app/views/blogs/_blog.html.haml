@@ -2,7 +2,7 @@
   .blog_title
     =blog.title
   <br><br>
-  =blog.content
+  !=display_text blog.content
   -if admin_user?
     %p
       = link_to 'Show', blog
