@@ -15,6 +15,8 @@ class HerbsController < ApplicationController
     @herb.common_names.build
     @herb.actions.build
     @herb.indications.build
+    @herb.links.build
+    @herb.books.build
   end
 
   def create
@@ -28,6 +30,8 @@ class HerbsController < ApplicationController
 
   def edit
     @herb = Herb.find(params[:id])
+    @herb.actions.build
+    @herb.indications.build
   end
 
   def update

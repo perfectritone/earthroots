@@ -1,0 +1,19 @@
+- title "Books"
+
+%table
+  %tr
+    %th Author
+    %th Year
+    %th Title
+    %th Page
+  - for book in @books
+    %tr
+      %td= book.author
+      %td= book.year
+      %td= book.title
+      %td= book.page
+      %td= link_to 'Show', book
+      %td= link_to 'Edit', edit_book_path(book)
+      %td= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete
+
+%p= link_to "New Book", new_book_path

@@ -1,0 +1,20 @@
+.fields
+  %p
+    =f.label :name
+    %br
+    =f.text_field :name
+  %p
+    =f.label :category
+    %br
+    =f.text_field :category
+  %p
+    =f.label :address
+    %br
+    =f.text_field :address
+  %p
+    =f.label :general
+    %br
+    =f.check_box :general
+
+  %p.remove_link
+    =link_to_remove_fields "x", f

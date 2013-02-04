@@ -1,0 +1,24 @@
+.fields
+  %p
+    =f.label :author
+    %br
+    =f.text_field :author
+  %p
+    =f.label :year
+    %br
+    =f.text_field :year
+  %p
+    =f.label :title
+    %br
+    =f.text_field :title
+  %p
+    =f.label :page
+    %br
+    =f.text_field :page
+  %p
+    =f.label :general
+    %br
+    =f.check_box :general
+
+  %p.remove_book
+    =link_to_remove_fields "x", f

@@ -53,7 +53,24 @@
       %p
         Other Information:
         =herb.other_information
-    -if herb.resources.present?
+    -if herb.links.present? || herb.books.present?
       %p
         Resources for Further Study:
-        =herb.resources
+    -if herb.links.present?
+      Links:
+      <br />
+      -herb.links.each do |link|
+        =link_to link.name, link.address
+        <br />
+    -if herb.books.present?
+      <br />
+      Books:
+      <br />
+      -herb.books.each do |book|
+        =book
+        <br />
+  -if admin_user?
+    %p
+      = link_to "Edit", edit_herb_path(herb)
+      |
+      = link_to "Destroy", herb, :confirm => 'Are you sure?', :method => :delete

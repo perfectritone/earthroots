@@ -13,8 +13,11 @@
 class Link < ActiveRecord::Base
   require 'uri'
   
-  attr_accessible :address, :category, :name
+  attr_accessible :address, :category, :name, :general
   CATEGORIES = ["herbs"]
+  
+  has_many :herb_resources
+  has_many :herbs, through: :herb_resources
   
   before_validation :downcase_address
   before_validation :downcase_category

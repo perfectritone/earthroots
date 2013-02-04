@@ -39,7 +39,6 @@ describe Herb do
   it { should respond_to :safety }
   it { should respond_to :dosage }
   it { should respond_to :other_information }
-  it { should respond_to :resources }
   
   #has_many association
   it { should respond_to :products }
@@ -48,6 +47,8 @@ describe Herb do
   it { should respond_to :common_names }
   it { should respond_to :actions }
   it { should respond_to :indications }
+  it { should respond_to :links }  
+  it { should respond_to :books }
   
   it { should be_valid }
   

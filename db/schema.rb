@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129230543) do
+ActiveRecord::Schema.define(:version => 20130204051019) do
 
   create_table "actions", :force => true do |t|
     t.integer  "herb_id"
@@ -27,9 +27,27 @@ ActiveRecord::Schema.define(:version => 20130129230543) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "books", :force => true do |t|
+    t.string   "author"
+    t.integer  "year"
+    t.string   "title"
+    t.integer  "page"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.boolean  "general",    :default => true
+  end
+
   create_table "common_names", :force => true do |t|
     t.integer  "herb_id"
     t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "herb_resources", :force => true do |t|
+    t.integer  "herb_id"
+    t.integer  "link_id"
+    t.integer  "book_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -50,7 +68,6 @@ ActiveRecord::Schema.define(:version => 20130129230543) do
     t.text     "dosage"
     t.text     "other_information"
     t.string   "parts_used"
-    t.string   "resources"
   end
 
   create_table "herbs_products", :id => false, :force => true do |t|
@@ -69,8 +86,9 @@ ActiveRecord::Schema.define(:version => 20130129230543) do
     t.string   "address"
     t.string   "category"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.boolean  "general",    :default => true
   end
 
   create_table "product_sizes", :force => true do |t|

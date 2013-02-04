@@ -1,5 +1,7 @@
 Earthroots::Application.routes.draw do
   
+  resources :books
+
   resources :herbs
   resources :products
 

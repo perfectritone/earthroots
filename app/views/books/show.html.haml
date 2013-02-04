@@ -1,0 +1,21 @@
+- title "Book"
+
+%p
+  %strong Author:
+  = @book.author
+%p
+  %strong Year:
+  = @book.year
+%p
+  %strong Title:
+  = @book.title
+%p
+  %strong Page:
+  = @book.page
+
+%p
+  = link_to "Edit", edit_book_path(@book)
+  |
+  = link_to "Destroy", @book, :confirm => 'Are you sure?', :method => :delete
+  |
+  = link_to "View All", books_path
