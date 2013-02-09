@@ -21,14 +21,17 @@
         = content_tag :div, msg, :id => "flash_#{name}"
       
       #content
-        - if show_title? && !content_for?(:page_content)
-          %h1= yield(:title)
-      
-        - if content_for?(:page_content)
-          #inner_box
-            %h1= yield(:title)
-            = yield(:page_content)
-        - else
+        #inner_box
           = yield
+        -#
+          - if show_title? && !content_for?(:page_content)
+            %h1= yield(:title)
+        
+          - if content_for?(:page_content)
+            #inner_box
+              %h1= yield(:title)
+              = yield(:page_content)
+          - else
+            = yield
       
       = render 'layouts/footer'

@@ -26,4 +26,10 @@ describe "StaticPages" do
     it { should have_content('StaticPages#shop') }
     #it { should have_selector('title', text: 'Contact') }
   end
+  
+  describe "Services page" do
+    before { visit services_path }
+    
+    it { should have_content('services') }
+  end
 end

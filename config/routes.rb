@@ -18,6 +18,7 @@ Earthroots::Application.routes.draw do
   
   match "/contact", to: "static_pages#contact"
   match "/shop", to: "static_pages#shop"
+  match "/services", to: "static_pages#services"
   
 
   # The priority is based upon order of creation:

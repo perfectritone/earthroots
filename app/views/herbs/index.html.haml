@@ -5,4 +5,8 @@
   
 -@herbs.each do |herb|
   =link_to herb.name, herb_path(herb)
+  -if admin_user?
+    = link_to "Edit", edit_herb_path(herb)
+    |
+    = link_to "Destroy", herb, :confirm => 'Are you sure?', :method => :delete
   <br><br>
